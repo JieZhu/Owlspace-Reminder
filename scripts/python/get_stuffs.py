@@ -1,4 +1,5 @@
 #! /usr/bin/env python
+import json
 import sys
 import requests
 import re
@@ -160,4 +161,4 @@ for subject in subject_dict:
 
 
 
-print due_dates_dict
+print json.dumps(due_dates_dict)
