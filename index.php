@@ -3,27 +3,20 @@
 
   if(isset($_POST['user'])) {
     // call python job for CAS
-    $command = 'python scripts/python/auth.py ' . $_POST['user']['netid'] . ' ' . $_POST['user']['password'];
+    $command = 'C:\python27\python scripts/python/auth.py ' . $_POST['user']['netid'] . ' ' . $_POST['user']['password'];
     if(exec($command, $retval) == 'True') {
       include_once('./scripts/php/db_utils.php');
 
       connectToDatabase();
       $_SESSION['netid'] = $_POST['user']['netid'];
 
-      if(isset($_POST['remember'])
-        {
+      if(!isset($_POST['remember'])) {
         addUser_noPass($_POST['user']['netid']);
-
-        }
-
-      else
-        {
-      
+      }
+      else {
         addUser($_POST['user']['netid'], $_POST['user']['password']);
-        }    
-
-
-}
+      }    
+    }
   }
 
   if(isset($_SESSION['netid'])) {
