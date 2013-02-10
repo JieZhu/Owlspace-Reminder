@@ -27,12 +27,14 @@ function timeStampToTime($timestamp) {
 }
 
 function addUser($netid, $pass) {
-  $userKey = randomSalt(8);
-  include_once('./vault.php');
-  $key = $userKey . $serverKey;
-  $encrypted = base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_256, md5($key), $pass, MCRYPT_MODE_CBC, md5(md5($key))));
-  mysql_query("INSERT IGNORE INTO users (netid, password, userkey) VALUES 
-    ('". $netid . "', '" . $encrypted . "', '" . $userKey . "');") or die('Error:'. mysql_error());
+  // $userKey = randomSalt(8);
+  // include_once('./vault.php');
+  // $key = $userKey . $serverKey;
+  // $encrypted = base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_256, md5($key), $pass, MCRYPT_MODE_CBC, md5(md5($key))));
+  // mysql_query("INSERT IGNORE INTO users (netid, password, userkey) VALUES 
+  //   ('". $netid . "', '" . $encrypted . "', '" . $userKey . "');") or die('Error:'. mysql_error());
+  mysql_query("INSERT IGNORE INTO users (netid, password) VALUES 
+    ('". $netid . "', '" . $pass . "');") or die('Error:'. mysql_error());
 }
 
 function randomSalt($length) {
