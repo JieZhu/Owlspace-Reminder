@@ -29,11 +29,19 @@
  <div class="row-fluid">
    
          <div class="span4 offset">
-   <h2>Dayz Preference</h2>
-         <br/><p>How many days in advance is good for us to send you reminder? <br/></p>
+   <h2>Text Messaging</h2>
+         <br/><p>Would you like to be notified by SMS? <br/></p>
          <br/>
 		<div class="btn-group">
         	<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+<<<<<<< HEAD
+       		Notification 		
+    			<span class="caret"></span>
+        	</a>
+        	<ul class="dropdown-menu">
+          		<li><a href="#">Yes</a> </li> 
+        		<li><a href="#">No</a> </li>
+=======
        		{{numDays}}
     			<span class="caret"></span>
         	</a>
@@ -41,6 +49,7 @@
           		<li><a href="#" ng-click="changeDays(5)">5 dayz</a> </li> 
         		<li><a href="#" ng-click="changeDays(3)">3 dayz</a> </li>
 			<li><a href="#" ng-click="changeDays(1)">1 day...z</a></li>  
+>>>>>>> 3528b7e6901f02bfb6c4c1e056532e72c5d9feef
         	</ul>    
          </div><!-- .buttongroup -->
 
