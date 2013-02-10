@@ -1,3 +1,11 @@
+<?php
+  session_start();
+
+  if(!isset($_SESSION['netid'])) {
+    header('Location: index.php');
+  }
+?>
+
 <!DOCTYPE html>
 <html ng-app>
 <head>
@@ -7,31 +15,36 @@
   <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
 </head>
 <body>
-  <div class="navbar">
-    <div class="navbar-inner">
-      <a class="brand" href="#">O+</a>
-      <ul class="nav">
-        <li><a href="#">Home</a></li>
-        <li class="active"><a href="#">Assignments</a></li>
-        <li><a href="#">Preferences</a></li>
-      </ul>
-    </div>
-  </div>
+  <?php
+    include_once('./scripts/php/navbar.php'); 
+    getNav(basename($_SERVER['SCRIPT_NAME']));
+  ?>
 
-<!--   <div ng-controller="AssignmentsCtrl">
-    <div class="container-fluid">
-      <table class="table table-striped">
-        <tr>
-          <td ng-repeat="column in columns"><b><a ng-click="chooseSort(column)" href="#">{{column}} <i ng-class="SelectedCol(column)"></a></i></b></td>
-        </tr>
-        <tr ng-repeat="row in rows | orderBy:sort.column">
-          <td ng-repeat="column in columns"><div ng-bind-html-unsafe="row[column]"></div></td>
-        </tr>
-      </table>
-    </div>
-  </div> -->
 
-<script src="http://code.angularjs.org/1.1.2/angular.min.js"></script>
-<script src="./js/controllers.js"></script>
+        <?php
+          include_once('./scripts/php/db_utils.php');
+          connectToDatabase();
+
+          $assignments = getAssignments($_SESSION['netid']);
+
+          echo '<table class="table table-bordered">
+                  <tr>
+                    <td></td>
+                    <td>Class</td>
+                    <td>Assignment</td>
+                    <td>Due Date</td>
+                  </tr>';
+
+          foreach ($assignments as $key => $assignment) {
+            echo '<tr>
+                    <td></td>
+                    <td>', $assignment['class'], '</td>
+                    <td>', $assignment['assignment'], '</td>
+                    <td>', $assignment['deadline'], '</td>
+                  </tr>';
+          }
+
+          echo '</table>';
+        ?>
 </body>
 </html>
