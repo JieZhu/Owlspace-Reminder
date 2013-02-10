@@ -41,7 +41,7 @@
 	<div class="hero-unit">
     <h1><font color="White">Current Assignments</font></h1>
 	<br/>
-    <p><font size="3">To the right is a list of all your assignments that O+ is currently tracking. <br/><br/>Please ensure that your OwlSpace is configured to display tabs for all of your current classes. A user with 4 classes on OwlSpace would see something like this:<br/> <br/><img src="images/tab_demo.png"> <br/><br/> If you do not see a recently posted assignment, please allow some time for it to be integrated into the O+ database.</font></p>
+    <p><font size="3">To the right is a list of all your future assignments that O+ is currently tracking. <br/><br/>Please ensure that your OwlSpace is configured to display tabs for all of your current classes. A user with 4 classes on OwlSpace would see something like this:<br/> <br/><img src="images/tab_demo.png"> <br/><br/> If you do not see a recently posted assignment, please allow some time for it to be integrated into the O+ database.</font></p>
     </div>
 </div>
 
