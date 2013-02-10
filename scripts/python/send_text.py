@@ -1,17 +1,9 @@
+#! /usr/bin/env python
+import commands
 import sys
-import os
-num, content = sys.argv[1:3]
-
-provider_list = ['txt.att.net','qwestmp.com','tmomail.net','vtext.com','messaging.sprintpcs.com','pm.sprint.com','vmobl.com','messaging.nextel.com','message.alltel.com','mymetropcs.com','ptel.com','myboostmobile.com','tms.suncom.com','mmst5.tracfone.com','email.uscc.net']
-
-send_list = []
-
-for item in provider_list:
-    send_list.append(str(num)+"@"+item)
+phone, message = sys.argv[1:3]
 
 
+command = "curl -X POST 'https://api.twilio.com/2010-04-01/Accounts/AC7af756065e479f2498715b47ddf0fc4a/SMS/Messages.json' -d 'From=%2B12813771843' -d 'To=%2B1"+ phone +"' -d 'Body="+message+ "' -u AC7af756065e479f2498715b47ddf0fc4a:329a19ff9099dad75522a5cdcc435e22"
 
-for item in send_list:
-    command =" sendEmail -f owlspacereminder@gmail.com -t " + str(item)+" -m " + str(content) + " -s smtp.gmail.com -o tls=yes -xu owlspacereminder -xp 83872113"
-    os.system(command)
-
+print commands.getstatusoutput(command)
