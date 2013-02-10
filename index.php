@@ -3,13 +3,36 @@
 
   if(isset($_POST['user'])) {
     // call python job for CAS
+<<<<<<< HEAD
+    $command = 'python scripts/python/auth.py ' . $_POST['user']['netid'] . ' ' . $_POST['user']['password'];
+  
+=======
     $command = 'C:\python27\python scripts/python/auth.py ' . $_POST['user']['netid'] . ' ' . $_POST['user']['password'];
+>>>>>>> 414e06b9764e145ccbdd2fecc0f6c23392bf17da
     if(exec($command, $retval) == 'True') {
       include_once('./scripts/php/db_utils.php');
 
       connectToDatabase();
       $_SESSION['netid'] = $_POST['user']['netid'];
 
+<<<<<<< HEAD
+      if(!isset($_POST['remember']))
+        {
+
+	
+        addUser_noPass($_POST['user']['netid']);
+
+        }
+
+      else
+        {
+        
+	addUser($_POST['user']['netid'], $_POST['user']['password']);
+        }    
+
+
+}
+=======
       if(!isset($_POST['remember'])) {
         addUser_noPass($_POST['user']['netid']);
       }
@@ -17,9 +40,13 @@
         addUser($_POST['user']['netid'], $_POST['user']['password']);
       }    
     }
+>>>>>>> 414e06b9764e145ccbdd2fecc0f6c23392bf17da
   }
 
   if(isset($_SESSION['netid'])) {
+
+        $command = 'python scripts/python/get_stuffs.py ' . $_POST['user']['netid'] . ' ' . $_POST['user']['password'];
+	exec($command);				
     header('Location: assignments.php');
   }
 ?>
@@ -63,7 +90,7 @@
               <button class="btn btn-primary" type="submit" >Login</button>
 	          <label class="checkbox">
      		   <input type="checkbox" name = "remember"> Remember my password for automatic update
-      	     </label> 
+      	     </label>  
 
     </form>
     </div><!-- .span3 -->
