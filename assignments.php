@@ -4,6 +4,9 @@
   if(!isset($_SESSION['netid'])) {
     header('Location: index.php');
   }
+
+  // update the assignments
+  
 ?>
 
 <!DOCTYPE html>
@@ -35,9 +38,10 @@
 
           $assignments = getAssignments($_SESSION['netid']);
 
-          echo '<table class="table table-bordered">
+          echo '<form action="assignments.php" method="post" accept-charset="UTF-8">
+                <table class="table table-bordered">
                   <tr>
-                    <td></td>
+                    <td>Send Reminder?</td>
                     <td>Class</td>
                     <td>Assignment</td>
                     <td>Due Date</td>
@@ -45,14 +49,16 @@
 
           foreach ($assignments as $key => $assignment) {
             echo '<tr>
-                    <td></td>
+                    <td><input type="checkbox" name="reminders[' . $assignment['id'] .']" value=""  /></td>
                     <td>', $assignment['class'], '</td>
                     <td>', $assignment['assignment'], '</td>
                     <td>', $assignment['deadline'], '</td>
                   </tr>';
           }
 
-          echo '</table>';
+          echo '</table>
+                <button class="btn btn-primary" type="submit">Submit</button>
+                </form>';
         ?>
 </div>
 

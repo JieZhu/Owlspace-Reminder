@@ -4,7 +4,7 @@ function connectToDatabase() {
   $dbhost = 'localhost';
   $dbname = 'oplus';
   $dbuser = 'root';
-  $dbpass = 'root';
+  $dbpass = '';
   $conn = mysql_connect($dbhost, $dbuser, $dbpass);
   mysql_select_db($dbname, $conn);
 }
@@ -27,10 +27,12 @@ function timeStampToTime($timestamp) {
 }
 
 function addUser($netid, $pass) {
-  $salt = randomSalt(5);
-  $saltedHashedPass = hash('sha256', hash('sha256', $pass) . $salt);
-  mysql_query("INSERT IGNORE INTO users (netid, password, salt) VALUES 
-    ('". $netid . "', '" . $saltedHashedPass . "', '" . $salt . "');") or die('Error:'. mysql_error());
+  $userKey = randomSalt(8);
+  include_once('./vault.php');
+  $key = $userKey . $serverKey;
+  $encrypted = base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_256, md5($key), $pass, MCRYPT_MODE_CBC, md5(md5($key))));
+  mysql_query("INSERT IGNORE INTO users (netid, password, userkey) VALUES 
+    ('". $netid . "', '" . $encrypted . "', '" . $userKey . "');") or die('Error:'. mysql_error());
 }
 
 function randomSalt($length) {
