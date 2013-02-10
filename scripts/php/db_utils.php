@@ -4,7 +4,7 @@ function connectToDatabase() {
   $dbhost = 'localhost';
   $dbname = 'oplus';
   $dbuser = 'root';
-  $dbpass = '';
+  $dbpass = '83872113';
   $conn = mysql_connect($dbhost, $dbuser, $dbpass);
   mysql_select_db($dbname, $conn);
 }
