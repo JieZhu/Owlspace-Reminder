@@ -1,8 +1,9 @@
 #! /usr/bin/env python
-import json
 import sys
 import requests
 import re
+import time
+import datetime
 from bs4 import BeautifulSoup
 username, password = sys.argv[1:3]
 url1 = 'https://owlspace-ccm.rice.edu/portal'
@@ -161,4 +162,28 @@ for subject in subject_dict:
 
 
 
-print json.dumps(due_dates_dict)
+def convert_time(t):
+    t = t.replace(',','')
+    t = t.split()
+    t[2] = t[2][2:]
+    t[3] = t[3]+':00'
+    ampm = t.pop(-1)
+    if ampm == 'pm':
+        hours = t[3]
+        t[3] = str(int(t[3][:-6])+12)
+        t[3] = t[3] + hours[-6:]
+    t = ' '.join(t)
+    return time.mktime(datetime.datetime.strptime(t,"%b %d %y %H:%M:%S").timetuple())
+
+
+
+
+#print due_dates_dict
+
+for subject in due_dates_dict:
+    assignments = due_dates_dict[subject]
+    for assignment in assignments:
+        assignments[assignment] = convert_time(assignments[assignment])
+
+print due_dates_dict
+
