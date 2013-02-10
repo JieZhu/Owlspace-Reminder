@@ -1,3 +1,7 @@
+<?php
+  session_start();
+?>
+
 <!DOCTYPE html>
  <html>
  <head>
@@ -10,16 +14,10 @@
  </head>
  <body>
  
-    <div class="navbar">
-    <div class="navbar-inner">
-    <a class="brand" href="#">O+</a>
-    <ul class="nav">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Assignments</a></li>
-    <li class="active"><a href="#">Preferences</a></li>
-    </ul>
-    </div>
-    </div>
+  <?php
+    include_once('./scripts/php/navbar.php'); 
+    getNav(basename($_SERVER['SCRIPT_NAME']));
+  ?>
 
  <div class="container">
          
