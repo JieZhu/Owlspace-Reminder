@@ -21,8 +21,7 @@
     include_once('./scripts/php/navbar.php'); 
     getNav(basename($_SERVER['SCRIPT_NAME']));
   ?>
-
- <div class="container">
+ <div class="container" ng-controller="PreferencesCtrl">
          
          <div class="hero-unit">
          <h1><font color="White">O+ Settings</font></h1>
@@ -54,7 +53,7 @@
          <h2>Change Phone Number</h2>
          <p>How can O+ best reach you?<br/><p/>
 
-    <form action="[YOUR ACTION]" method="post" accept-charset="UTF-8">
+    <form action="preferences.php" method="post" accept-charset="UTF-8">
           <input id="phone_number" style="margin-bottom: 15px;" type="text" name="user[phone]" placeholder="Phone Number" size="30" />
       </form>
 
@@ -77,6 +76,6 @@
  </div><!-- .container -->
  
 
-     
+  <script src="http://code.angularjs.org/1.1.2/angular.min.js"></script>
  </body>
 </html>
