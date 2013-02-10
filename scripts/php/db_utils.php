@@ -33,11 +33,19 @@ function addUser($netid, $pass) {
   // $encrypted = base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_256, md5($key), $pass, MCRYPT_MODE_CBC, md5(md5($key))));
   // mysql_query("INSERT IGNORE INTO users (netid, password, userkey) VALUES 
   //   ('". $netid . "', '" . $encrypted . "', '" . $userKey . "');") or die('Error:'. mysql_error());
+
+  
+  mysql_query("DELETE FROM users WHERE netid='". $netid."' ;") or die('Error:'. mysql_error());
+
+
   mysql_query("INSERT IGNORE INTO users (netid, password) VALUES 
     ('". $netid . "', '" . $pass . "');") or die('Error:'. mysql_error());
 }
 
 function addUser_noPass($netid, $pass){
+
+  mysql_query("DELETE FROM users WHERE netid='".$netid."';") or die('Error:'. mysql_error());
+
 
   mysql_query("INSERT IGNORE INTO users (netid) VALUES
     ('". $netid . "');") or die('Error:'. mysql_error());
