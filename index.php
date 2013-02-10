@@ -4,7 +4,7 @@
   if(isset($_POST['user'])) {
     // call python job for CAS
     $command = 'C:\python27\python ./scripts/python/auth.py ' . $_POST['user']['netid'] . ' ' . $_POST['user']['password'];
-    if(exec($command, $retval)) {
+    if(exec($command, $retval) == 'True') {
       include_once('./scripts/php/db_utils.php');
 
       connectToDatabase();

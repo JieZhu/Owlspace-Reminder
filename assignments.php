@@ -1,12 +1,26 @@
 <?php
   session_start();
+  include_once('./scripts/php/db_utils.php');
 
   if(!isset($_SESSION['netid'])) {
     header('Location: index.php');
   }
 
-  // update the assignments
-  
+  // connectToDatabase();
+
+  // // update the assignments
+  // if(count($_POST) > 0) {
+  //   foreach ($_POST['reminders'] as $id => $value) {
+  //     if($value == 'on') {
+  //       $stmt = "UPDATE assignments SET selected='1' WHERE id='{$id}';";
+  //       mysql_query($stmt) or die('Error:'. mysql_error());
+  //     }
+  //     else {
+  //       $stmt = "UPDATE assignments SET selected='0' WHERE id='{$id}';";
+  //       mysql_query($stmt) or die('Error:'. mysql_error());
+  //     }
+  //   }
+  // }
 ?>
 
 <!DOCTYPE html>
@@ -38,27 +52,30 @@
 
           $assignments = getAssignments($_SESSION['netid']);
 
-          echo '<form action="assignments.php" method="post" accept-charset="UTF-8">
-                <table class="table table-bordered">
-                  <tr>
-                    <td>Send Reminder?</td>
-                    <td>Class</td>
+          // echo '<form action="assignments.php" method="post" accept-charset="UTF-8">
+          echo  '<table class="table table-bordered">
+                  <tr>';
+                    // <td>Send Reminder?</td>
+          echo      '<td>Class</td>
                     <td>Assignment</td>
                     <td>Due Date</td>
                   </tr>';
 
           foreach ($assignments as $key => $assignment) {
-            echo '<tr>
-                    <td><input type="checkbox" name="reminders[' . $assignment['id'] .']" value=""  /></td>
-                    <td>', $assignment['class'], '</td>
+            echo '<tr>';
+                    // <td><input type="checkbox" name="reminders[' . $assignment['id'] .']"';
+            // if($assignment['selected']==1) 
+            //   echo 'checked="checked"';
+            // echo ' />';
+            echo '</td><td>', $assignment['class'], '</td>
                     <td>', $assignment['assignment'], '</td>
                     <td>', $assignment['deadline'], '</td>
                   </tr>';
           }
 
-          echo '</table>
-                <button class="btn btn-primary" type="submit">Submit</button>
-                </form>';
+          echo '</table>';
+                // <button class="btn btn-primary" type="submit">Submit</button>
+                // </form>';
         ?>
 </div>
 
