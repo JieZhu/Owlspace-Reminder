@@ -13,13 +13,13 @@ CREATE TABLE IF NOT EXISTS assignments (
   assignment varchar(30) CHARACTER SET utf8 NOT NULL,
   deadline varchar(30) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (id),
-  UNIQUE KEY (netid)
+  UNIQUE KEY (assignment)
 ) DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
 
 CREATE TABLE IF NOT EXISTS preferences (
   id int(11) NOT NULL AUTO_INCREMENT,
   netid varchar(10) CHARACTER SET utf8 NOT NULL,
-  phone int(10),
+  phone varchar(12),
   days int(10),
   PRIMARY KEY(id),
   UNIQUE KEY (netid)

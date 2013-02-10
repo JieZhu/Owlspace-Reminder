@@ -34,17 +34,18 @@
  <div class="row-fluid">
    
          <div class="span4 offset">
-   <h2>Delivery Method</h2>
-         <br/><p>Would you like to be notified by text message?<br/></p>
+   <h2>Dayz Preference</h2>
+         <br/><p>How many days in advance is good for us to send you reminder? <br/></p>
          <br/>
 		<div class="btn-group">
         	<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-        		Notification
+       		Dayz 		
     			<span class="caret"></span>
         	</a>
         	<ul class="dropdown-menu">
-          		<li><a href="#">Yes</a> </li> 
-        		<li><a href="#">No</a> </li>  
+          		<li><a href="#">5 dayz</a> </li> 
+        		<li><a href="#">3 dayz</a> </li>
+			<li><a href="#">1 day...z</a></li>  
         	</ul>    
          </div><!-- .buttongroup -->
 
@@ -62,7 +63,7 @@
 
 		<div class="span4 offset">
  			<h2>Test Delivery</h2>
-       		<br/><p>Asks O+ to deliver a test email or SMS.<br/></p>
+       		<br/><p>Asks O+ to deliver a test email or SMS.<br/></p> 
        <br/>
         <div class="btn-group">
       <a class="btn" href="#">
