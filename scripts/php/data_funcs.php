@@ -18,7 +18,7 @@
    * Makes table for website, given netid/pass
    */
   function makeTable($netid, $pass) {
-    $dataJSON = str_replace("'", "\"", getOwlspaceData($netid,$pass, 1));
+    $dataJSON = getOwlspaceData($netid,$pass, 1);
 
     $returnString = "";
 
