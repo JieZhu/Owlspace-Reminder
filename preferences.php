@@ -51,7 +51,7 @@
          <p>How can O+ best reach you?<br/><p/>
 
     <form action="preferences.php" method="post" accept-charset="UTF-8">
-          <input id="phone_number" style="margin-bottom: 15px;" type="text" name="user[phone]" placeholder="Phone Number" size="30" />
+          <input id="phone_number" style="margin-bottom: 15px;" type="text" name="user[phone]" placeholder="Phone Number" size="30" ng-model="phonenumber" />
       </form>
 
 	</div><!-- .span4 -->
