@@ -3,7 +3,7 @@
 
   if(isset($_POST['user'])) {
     // call python job for CAS
-    $command = 'C:\python27\python ./scripts/python/auth.py ' . $_POST['user']['netid'] . ' ' . $_POST['user']['password'];
+    $command = '/Library/Frameworks/EPD64.framework/Versions/Current/bin/ipython ./scripts/python/auth.py ' . $_POST['user']['netid'] . ' ' . $_POST['user']['password'];
     if(exec($command, $retval)) {
       include_once('./scripts/php/db_utils.php');
 

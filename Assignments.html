@@ -27,7 +27,7 @@ if (!$con)
 
 mysql_select_db("my_db", $con);
 
-$result = mysql_query("SELECT * FROM Assignments WHERE user_id = $user_id");
+$result = mysql_query("SELECT * FROM Assignments WHERE id = $user_id");
 
 echo '<table class="table table-bordered">
 <tr>
