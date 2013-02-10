@@ -34,18 +34,17 @@
  <div class="row-fluid">
    
          <div class="span4 offset">
-   <h2>Dayz Preference</h2>
-         <br/><p>How many days in advance is good for us to send you reminder? <br/></p>
+   <h2>Text Messaging</h2>
+         <br/><p>Would you like to be notified by SMS? <br/></p>
          <br/>
 		<div class="btn-group">
         	<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-       		Dayz 		
+       		Notification 		
     			<span class="caret"></span>
         	</a>
         	<ul class="dropdown-menu">
-          		<li><a href="#">5 dayz</a> </li> 
-        		<li><a href="#">3 dayz</a> </li>
-			<li><a href="#">1 day...z</a></li>  
+          		<li><a href="#">Yes</a> </li> 
+        		<li><a href="#">No</a> </li>
         	</ul>    
          </div><!-- .buttongroup -->
 
