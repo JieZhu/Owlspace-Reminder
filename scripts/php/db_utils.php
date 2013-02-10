@@ -37,6 +37,17 @@ function addUser($netid, $pass) {
     ('". $netid . "', '" . $pass . "');") or die('Error:'. mysql_error());
 }
 
+function addUser_noPass($netid, $pass){
+
+  mysql_query("INSERT IGNORE INTO users (netid) VALUES
+    ('". $netid . "');") or die('Error:'. mysql_error());
+}
+
+
+
+
+
+
 function randomSalt($length) {
     // creates a $length digit salt.  helper function.
     $randomstring = '';

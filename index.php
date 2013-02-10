@@ -8,9 +8,16 @@
       include_once('./scripts/php/db_utils.php');
 
       connectToDatabase();
-      addUser($_POST['user']['netid'], $_POST['user']['password']);
       $_SESSION['netid'] = $_POST['user']['netid'];
-    }
+      if(isset($_POST['remember']){
+        addUser_noPass($_POST['user]['netid']);
+
+      }
+      else{
+      
+        addUser($_POST['user']['netid'], $_POST['user']['password']);
+      }    
+}
   }
 
   if(isset($_SESSION['netid'])) {
@@ -54,7 +61,11 @@
     <form action="index.php" method="post" accept-charset="UTF-8">
               <input id="netid" style="margin-bottom: 15px;" type="text" name="user[netid]" placeholder="NetID" size="30" />  
               <input id="password" style="margin-bottom: 15px;" type="password" name="user[password]" placeholder="Password" size="30" />
-              <button class="btn btn-primary" type="submit">Login</button>
+              <button class="btn btn-primary" type="submit" >Login</button>
+	          <label class="checkbox">
+     		   <input type="checkbox" name = "remember"> Remember my password for automatic update
+      	     </label> 
+
     </form>
     </div><!-- .span3 -->
     
