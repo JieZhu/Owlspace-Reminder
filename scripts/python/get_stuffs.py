@@ -3,6 +3,7 @@ import sys
 import requests
 import re
 import time
+import MySQLdb
 import datetime
 from bs4 import BeautifulSoup
 username, password = sys.argv[1:3]
@@ -184,6 +185,49 @@ for subject in due_dates_dict:
     assignments = due_dates_dict[subject]
     for assignment in assignments:
         assignments[assignment] = convert_time(assignments[assignment])
+
+cur_ts = time.time()
+remove = []
+
+for subject in due_dates_dict:
+    for assignment in due_dates_dict[subject]:
+        due_dates = due_dates_dict[subject][assignment]
+        if due_dates <= cur_ts:
+           remove.append([subject, assignment])
+
+for item in remove:
+    due_dates_dict[item[0]].pop(item[1])
+
+
+remove = []
+for item in due_dates_dict:
+    if due_dates_dict[item] == {}:
+        remove.append(item)
+
+for item in remove:
+    due_dates_dict.pop(item)
+
+
+
+
+db = MySQLdb.connect(host = "localhost",port = 3306, user = "root", passwd = "83872113",db = "oplus")
+
+cursor = db.cursor()
+
+
+
+
+
+for subject in due_dates_dict:
+    for assignment in due_dates_dict[subject]:
+        due_dates = due_dates_dict[subject][assignment]
+        command = "INSERT INTO assignments(netid,class,assignment,\
+deadline)VALUES('"+username+"','"+subject+"','"+assignment+"','"+str(due_dates)+"')"
+        
+        try:
+            cursor.execute(command)
+        except:
+            pass
 
 print due_dates_dict
 
