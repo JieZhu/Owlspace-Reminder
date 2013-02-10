@@ -34,22 +34,12 @@
          <br/>
 		<div class="btn-group">
         	<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-<<<<<<< HEAD
-       		Notification 		
+       		{{notification}}
     			<span class="caret"></span>
         	</a>
         	<ul class="dropdown-menu">
-          		<li><a href="#">Yes</a> </li> 
-        		<li><a href="#">No</a> </li>
-=======
-       		{{numDays}}
-    			<span class="caret"></span>
-        	</a>
-        	<ul class="dropdown-menu">
-          		<li><a href="#" ng-click="changeDays(5)">5 dayz</a> </li> 
-        		<li><a href="#" ng-click="changeDays(3)">3 dayz</a> </li>
-			<li><a href="#" ng-click="changeDays(1)">1 day...z</a></li>  
->>>>>>> 3528b7e6901f02bfb6c4c1e056532e72c5d9feef
+          		<li><a href="#" ng-click="changeNotification('Yes')">Yes</a> </li> 
+        		<li><a href="#" ng-click="changeNotification('No')">No</a> </li>
         	</ul>    
          </div><!-- .buttongroup -->
 
@@ -67,10 +57,10 @@
 
 		<div class="span4 offset">
  			<h2>Test Delivery</h2>
-       		<br/><p>Asks O+ to deliver a test email or SMS.<br/></p> 
+       		<br/><p>Asks O+ to deliver a test email and SMS.<br/></p> 
        <br/>
         <div class="btn-group">
-      <a class="btn" href="#">
+      <a class="btn" href="#" ng-click="testEmailSMS()">
       Test
       </a>
       
