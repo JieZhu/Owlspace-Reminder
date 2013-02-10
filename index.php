@@ -9,14 +9,20 @@
 
       connectToDatabase();
       $_SESSION['netid'] = $_POST['user']['netid'];
-      if(isset($_POST['remember']){
-        addUser_noPass($_POST['user]['netid']);
 
-      }
-      else{
+      if(isset($_POST['remember'])
+        {
+        addUser_noPass($_POST['user']['netid']);
+
+        }
+
+      else
+        {
       
         addUser($_POST['user']['netid'], $_POST['user']['password']);
-      }    
+        }    
+
+
 }
   }
 
