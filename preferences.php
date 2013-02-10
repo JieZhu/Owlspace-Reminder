@@ -3,16 +3,12 @@
 ?>
 
 <!DOCTYPE html>
- <html>
+ <html ng-app>
  <head>
          <meta charset="utf-8">
          <title>Preferences</title>
 		 <script src="bootstrap/js/jquery-1.9.1.min.js"></script>
          <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-          
-   		 <script src="bootstrap/js/bootstrap.js"></script>
-		 <script src="bootstrap/js/main.js"></script>
-   		 <script src="bootstrap/js/controllers.js"></script>  
 
  </head>
  <body>
@@ -38,13 +34,13 @@
          <br/>
 		<div class="btn-group">
         	<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-       		Dayz 		
+       		{{numDays}}
     			<span class="caret"></span>
         	</a>
         	<ul class="dropdown-menu">
-          		<li><a href="#">5 dayz</a> </li> 
-        		<li><a href="#">3 dayz</a> </li>
-			<li><a href="#">1 day...z</a></li>  
+          		<li><a href="#" ng-click="changeDays(5)">5 dayz</a> </li> 
+        		<li><a href="#" ng-click="changeDays(3)">3 dayz</a> </li>
+			<li><a href="#" ng-click="changeDays(1)">1 day...z</a></li>  
         	</ul>    
          </div><!-- .buttongroup -->
 
@@ -77,6 +73,8 @@
  </div><!-- .container -->
  
 
+  <script src="./js/controllers.js"></script>
+  <script src="bootstrap/js/bootstrap.js"></script>
   <script src="http://code.angularjs.org/1.1.2/angular.min.js"></script>
  </body>
 </html>
