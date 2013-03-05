@@ -26,8 +26,8 @@ function PreferencesCtrl($scope, $http) {
     $http({
       url: './scripts/php/testEmailSMS.php',
       method: 'GET'
-    }).success(function() {
-      // something
+    }).success(function(message) {
+      $scope.notification = 'Yes';
     });   
   }
 }
